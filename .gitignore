@@ -1,0 +1,93 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.yarn/*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript
+*.tsbuildinfo
+dist/
+build/
+*.js.map
+
+# Pulumi
+.pulumi/
+Pulumi.*.yaml
+*.secret
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+trace.zip
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.p12
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Backups
+*.bak
+*.backup
+*~
+
+# Oracle OCI
+.oci/config.backup
+
+# PostHog data
+posthog-data/

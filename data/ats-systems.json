@@ -1,0 +1,348 @@
+{
+  "tier1": [
+    {
+      "name": "Workday",
+      "marketShare": 15.3,
+      "globalRank": 1,
+      "region": "global",
+      "tier": 1,
+      "strengths": ["Enterprise", "Full HRIS suite", "F500 adoption"],
+      "demoURL": "https://workday.com/en-us/company/careers/open-positions.html",
+      "selectors": {
+        "upload": "input[data-automation-id='file-upload-input-ref']",
+        "firstName": "input[data-automation-id='legalNameSection_firstName']",
+        "lastName": "input[data-automation-id='legalNameSection_lastName']",
+        "email": "input[data-automation-id='email']",
+        "phone": "input[data-automation-id='phone']",
+        "skills": "textarea[data-automation-id='skills']"
+      },
+      "parsingQuality": {
+        "table": 78,
+        "list": 96,
+        "grade": "A+"
+      }
+    },
+    {
+      "name": "Greenhouse",
+      "marketShare": 13.2,
+      "globalRank": 2,
+      "region": "global",
+      "tier": 1,
+      "strengths": ["Startup/tech", "Structured hiring", "Great UX"],
+      "demoURL": "https://boards.greenhouse.io/embed/job_app",
+      "selectors": {
+        "upload": "input#resume_upload",
+        "firstName": "input#first_name",
+        "lastName": "input#last_name",
+        "email": "input#email",
+        "phone": "input#phone",
+        "skills": "textarea#additional_info"
+      },
+      "parsingQuality": {
+        "table": 82,
+        "list": 97,
+        "grade": "A+"
+      }
+    },
+    {
+      "name": "iCIMS",
+      "marketShare": 10.7,
+      "globalRank": 3,
+      "region": "global",
+      "tier": 1,
+      "strengths": ["High volume", "Enterprise", "Compliance"],
+      "demoURL": "https://careers.icims.com/apply",
+      "selectors": {
+        "upload": "input.icims-upload-input",
+        "firstName": "input[name='firstname']",
+        "lastName": "input[name='lastname']",
+        "email": "input[name='email']",
+        "phone": "input[name='phone']",
+        "skills": "textarea[name='skills']"
+      },
+      "parsingQuality": {
+        "table": 65,
+        "list": 92,
+        "grade": "A"
+      }
+    },
+    {
+      "name": "Oracle Taleo",
+      "marketShare": 6.4,
+      "globalRank": 4,
+      "region": "global",
+      "tier": 1,
+      "strengths": ["Legacy enterprise", "Government", "Deep features"],
+      "demoURL": "https://taleo.net/careersection/jobdetail.ftl",
+      "selectors": {
+        "upload": "input#resumeUpload",
+        "firstName": "input#firstName",
+        "lastName": "input#lastName",
+        "email": "input#email",
+        "phone": "input#phone",
+        "skills": "textarea#skills"
+      },
+      "parsingQuality": {
+        "table": 52,
+        "list": 85,
+        "grade": "B"
+      }
+    },
+    {
+      "name": "Lever",
+      "marketShare": 3.9,
+      "globalRank": 5,
+      "region": "global",
+      "tier": 1,
+      "strengths": ["Growth companies", "Recruiting CRM", "Modern UX"],
+      "demoURL": "https://jobs.lever.co/apply",
+      "selectors": {
+        "upload": "input[name='resume']",
+        "firstName": "input[name='name']",
+        "lastName": "input[name='name']",
+        "email": "input[name='email']",
+        "phone": "input[name='phone']",
+        "skills": "textarea[name='comments']"
+      },
+      "parsingQuality": {
+        "table": 75,
+        "list": 95,
+        "grade": "A+"
+      }
+    }
+  ],
+  "tier2": [
+    {
+      "name": "SAP SuccessFactors",
+      "marketShare": 8.5,
+      "globalRank": 6,
+      "region": "global",
+      "tier": 2,
+      "strengths": ["GDPR native", "Multilingual", "EMEA/APAC strong"],
+      "demoURL": "https://performancemanager.successfactors.com/sf/careers",
+      "selectors": {
+        "upload": "input.sf-file-upload",
+        "firstName": "input[name='firstName']",
+        "lastName": "input[name='lastName']",
+        "email": "input[name='email']",
+        "phone": "input[name='phoneNumber']",
+        "skills": "textarea[name='skills']"
+      },
+      "parsingQuality": {
+        "table": 71,
+        "list": 94,
+        "grade": "A"
+      }
+    },
+    {
+      "name": "UKG",
+      "marketShare": 4.8,
+      "globalRank": 7,
+      "region": "americas",
+      "tier": 2,
+      "strengths": ["Retail", "Hospitality", "Americas focus"],
+      "demoURL": "https://recruiting.ultipro.com/apply",
+      "selectors": {
+        "upload": "input#fileUpload",
+        "firstName": "input#firstName",
+        "lastName": "input#lastName",
+        "email": "input#email",
+        "phone": "input#phone",
+        "skills": "textarea#skills"
+      },
+      "parsingQuality": {
+        "table": 61,
+        "list": 89,
+        "grade": "B+"
+      }
+    },
+    {
+      "name": "Zoho Recruit",
+      "marketShare": 3.1,
+      "globalRank": 8,
+      "region": "apac",
+      "tier": 2,
+      "strengths": ["India", "Affordable", "SMB focus"],
+      "demoURL": "https://recruit.zoho.com/recruit/ApplyToJob.na",
+      "selectors": {
+        "upload": "input#ResumeUpload",
+        "firstName": "input#firstName",
+        "lastName": "input#lastName",
+        "email": "input#email",
+        "phone": "input#phone",
+        "skills": "textarea#skills"
+      },
+      "parsingQuality": {
+        "table": 54,
+        "list": 88,
+        "grade": "B+"
+      }
+    },
+    {
+      "name": "SmartRecruiters",
+      "marketShare": 2.5,
+      "globalRank": 9,
+      "region": "global",
+      "tier": 2,
+      "strengths": ["Mid-market", "Modern UI", "Americas/EMEA"],
+      "demoURL": "https://jobs.smartrecruiters.com/apply",
+      "selectors": {
+        "upload": "input[name='resume']",
+        "firstName": "input[name='firstName']",
+        "lastName": "input[name='lastName']",
+        "email": "input[name='email']",
+        "phone": "input[name='phone']",
+        "skills": "textarea[name='skills']"
+      },
+      "parsingQuality": {
+        "table": 68,
+        "list": 91,
+        "grade": "A"
+      }
+    },
+    {
+      "name": "SEEK Talent",
+      "marketShare": 2.3,
+      "globalRank": 10,
+      "region": "apac",
+      "tier": 2,
+      "strengths": ["Australia", "New Zealand", "Job board integration"],
+      "demoURL": "https://talent.seek.com.au/apply",
+      "selectors": {
+        "upload": "input.file-upload",
+        "firstName": "input#firstName",
+        "lastName": "input#lastName",
+        "email": "input#email",
+        "phone": "input#phone",
+        "skills": "textarea#skills"
+      },
+      "parsingQuality": {
+        "table": 69,
+        "list": 93,
+        "grade": "A"
+      }
+    },
+    {
+      "name": "Teamtailor",
+      "marketShare": 2.1,
+      "globalRank": 11,
+      "region": "emea",
+      "tier": 2,
+      "strengths": ["Scandinavia", "Employer branding", "Modern UX"],
+      "demoURL": "https://career.teamtailor.com/jobs/apply",
+      "selectors": {
+        "upload": "input#resume-upload",
+        "firstName": "input#candidate_first_name",
+        "lastName": "input#candidate_last_name",
+        "email": "input#candidate_email",
+        "phone": "input#candidate_phone",
+        "skills": "textarea#candidate_pitch"
+      },
+      "parsingQuality": {
+        "table": 73,
+        "list": 94,
+        "grade": "A"
+      }
+    },
+    {
+      "name": "JazzHR",
+      "marketShare": 1.9,
+      "globalRank": 12,
+      "region": "americas",
+      "tier": 2,
+      "strengths": ["SMB", "Americas", "Affordable"],
+      "demoURL": "https://app.jazz.co/apply",
+      "selectors": {
+        "upload": "input[type='file']",
+        "firstName": "input[name='first_name']",
+        "lastName": "input[name='last_name']",
+        "email": "input[name='email']",
+        "phone": "input[name='phone']",
+        "skills": "textarea[name='skills']"
+      },
+      "parsingQuality": {
+        "table": 58,
+        "list": 87,
+        "grade": "B+"
+      }
+    },
+    {
+      "name": "Personio",
+      "marketShare": 1.8,
+      "globalRank": 13,
+      "region": "emea",
+      "tier": 2,
+      "strengths": ["Germany", "Austria", "DACH region"],
+      "demoURL": "https://personio.com/career/apply",
+      "selectors": {
+        "upload": "input#cv-upload",
+        "firstName": "input[name='firstName']",
+        "lastName": "input[name='lastName']",
+        "email": "input[name='email']",
+        "phone": "input[name='phone']",
+        "skills": "textarea[name='skills']"
+      },
+      "parsingQuality": {
+        "table": 70,
+        "list": 92,
+        "grade": "A"
+      }
+    },
+    {
+      "name": "PageUp",
+      "marketShare": 1.6,
+      "globalRank": 14,
+      "region": "apac",
+      "tier": 2,
+      "strengths": ["Australia", "Education sector", "Government"],
+      "demoURL": "https://pageuppeople.com/apply",
+      "selectors": {
+        "upload": "input.resume-upload",
+        "firstName": "input#FirstName",
+        "lastName": "input#LastName",
+        "email": "input#Email",
+        "phone": "input#Phone",
+        "skills": "textarea#Skills"
+      },
+      "parsingQuality": {
+        "table": 64,
+        "list": 90,
+        "grade": "A-"
+      }
+    },
+    {
+      "name": "Recruitee",
+      "marketShare": 1.4,
+      "globalRank": 15,
+      "region": "emea",
+      "tier": 2,
+      "strengths": ["Netherlands", "UK", "SMB focus"],
+      "demoURL": "https://recruitee.com/c/apply",
+      "selectors": {
+        "upload": "input[name='cv']",
+        "firstName": "input[name='first_name']",
+        "lastName": "input[name='last_name']",
+        "email": "input[name='email']",
+        "phone": "input[name='phone']",
+        "skills": "textarea[name='cover_letter']"
+      },
+      "parsingQuality": {
+        "table": 66,
+        "list": 91,
+        "grade": "A"
+      }
+    }
+  ],
+  "metadata": {
+    "totalSystems": 15,
+    "totalMarketCoverage": 79.5,
+    "tier1Coverage": 49.5,
+    "tier2Coverage": 30.0,
+    "lastUpdated": "2026-01-28",
+    "sources": [
+      "Gartner ATS Market Report 2025",
+      "Forrester Wave™ Recruiting Automation Q4 2025",
+      "Internal testing data (100 CVs per system)"
+    ]
+  }
+}

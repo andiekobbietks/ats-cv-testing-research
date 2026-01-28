@@ -1,0 +1,350 @@
+{
+  "regions": [
+    {
+      "name": "us-phoenix-1",
+      "displayName": "Phoenix, Arizona, USA",
+      "continent": "Americas",
+      "country": "United States",
+      "availability": "Always Free eligible",
+      "capabilities": {
+        "armInstances": true,
+        "x86Instances": true,
+        "blockStorage": true,
+        "objectStorage": true,
+        "loadBalancer": true
+      },
+      "atsTargets": [
+        "Workday",
+        "Greenhouse",
+        "iCIMS",
+        "Lever",
+        "UKG"
+      ],
+      "purpose": "Americas region test runner + Granite VM",
+      "timezone": "America/Phoenix",
+      "latencyToATS": {
+        "Workday": "10-20ms",
+        "Greenhouse": "15-25ms",
+        "iCIMS": "12-22ms"
+      }
+    },
+    {
+      "name": "eu-frankfurt-1",
+      "displayName": "Frankfurt, Germany",
+      "continent": "EMEA",
+      "country": "Germany",
+      "availability": "Always Free eligible",
+      "capabilities": {
+        "armInstances": true,
+        "x86Instances": true,
+        "blockStorage": true,
+        "objectStorage": true,
+        "loadBalancer": true
+      },
+      "atsTargets": [
+        "SAP SuccessFactors",
+        "Teamtailor",
+        "Personio",
+        "Recruitee",
+        "SmartRecruiters"
+      ],
+      "purpose": "EMEA region test runner",
+      "timezone": "Europe/Berlin",
+      "latencyToATS": {
+        "SAP SuccessFactors": "5-15ms",
+        "Teamtailor": "20-30ms",
+        "Personio": "5-10ms"
+      }
+    },
+    {
+      "name": "ap-singapore-1",
+      "displayName": "Singapore",
+      "continent": "APAC",
+      "country": "Singapore",
+      "availability": "Always Free eligible",
+      "capabilities": {
+        "armInstances": true,
+        "x86Instances": true,
+        "blockStorage": true,
+        "objectStorage": true,
+        "loadBalancer": true
+      },
+      "atsTargets": [
+        "Zoho Recruit",
+        "SEEK Talent",
+        "PageUp",
+        "JazzHR",
+        "Oracle Taleo"
+      ],
+      "purpose": "APAC region test runner",
+      "timezone": "Asia/Singapore",
+      "latencyToATS": {
+        "Zoho Recruit": "15-25ms",
+        "SEEK Talent": "40-60ms",
+        "PageUp": "45-65ms"
+      }
+    }
+  ],
+  "alternativeRegions": {
+    "americas": [
+      {
+        "name": "us-ashburn-1",
+        "displayName": "Ashburn, Virginia, USA",
+        "notes": "East coast, closer to NYC (Greenhouse HQ)"
+      },
+      {
+        "name": "ca-toronto-1",
+        "displayName": "Toronto, Canada",
+        "notes": "Canadian presence, closer to Montreal"
+      },
+      {
+        "name": "sa-saopaulo-1",
+        "displayName": "São Paulo, Brazil",
+        "notes": "Latin America coverage"
+      }
+    ],
+    "emea": [
+      {
+        "name": "uk-london-1",
+        "displayName": "London, UK",
+        "notes": "UK market, Recruitee focus"
+      },
+      {
+        "name": "eu-amsterdam-1",
+        "displayName": "Amsterdam, Netherlands",
+        "notes": "Netherlands (Recruitee HQ)"
+      },
+      {
+        "name": "eu-zurich-1",
+        "displayName": "Zurich, Switzerland",
+        "notes": "DACH region alternative"
+      }
+    ],
+    "apac": [
+      {
+        "name": "ap-mumbai-1",
+        "displayName": "Mumbai, India",
+        "notes": "India market (Zoho HQ: Chennai)"
+      },
+      {
+        "name": "ap-sydney-1",
+        "displayName": "Sydney, Australia",
+        "notes": "Australia/NZ (SEEK, PageUp HQs)"
+      },
+      {
+        "name": "ap-tokyo-1",
+        "displayName": "Tokyo, Japan",
+        "notes": "Japan market coverage"
+      },
+      {
+        "name": "ap-seoul-1",
+        "displayName": "Seoul, South Korea",
+        "notes": "South Korea market"
+      }
+    ]
+  },
+  "deployment": {
+    "granite": {
+      "region": "us-phoenix-1",
+      "instance": "VM.Standard.A1.Flex",
+      "ocpu": 4,
+      "memory": 24,
+      "rationale": "ARM Ampere optimized for ML inference, Phoenix has lowest latency to US ATS"
+    },
+    "testRunners": [
+      {
+        "name": "runner-us",
+        "region": "us-phoenix-1",
+        "instance": "VM.Standard.E2.1.Micro",
+        "ocpu": 0.125,
+        "memory": 1,
+        "purpose": "Test Americas ATS (Workday, Greenhouse, iCIMS, Lever, UKG)"
+      },
+      {
+        "name": "runner-eu",
+        "region": "eu-frankfurt-1",
+        "instance": "VM.Standard.E2.1.Micro",
+        "ocpu": 0.125,
+        "memory": 1,
+        "purpose": "Test EMEA ATS (SAP, Teamtailor, Personio, Recruitee, SmartRecruiters)"
+      },
+      {
+        "name": "runner-ap",
+        "region": "ap-singapore-1",
+        "instance": "VM.Standard.E2.1.Micro",
+        "ocpu": 0.125,
+        "memory": 1,
+        "purpose": "Test APAC ATS (Zoho, SEEK, PageUp, JazzHR, Taleo)"
+      }
+    ],
+    "posthog": {
+      "region": "us-phoenix-1",
+      "instance": "VM.Standard.E2.1.Micro",
+      "ocpu": 0.125,
+      "memory": 1,
+      "storage": "50GB block volume",
+      "rationale": "Centralized analytics, co-located with Granite for low latency"
+    }
+  },
+  "networking": {
+    "vcn": {
+      "cidr": "10.0.0.0/16",
+      "subnets": [
+        {
+          "name": "public-subnet",
+          "cidr": "10.0.1.0/24",
+          "type": "public",
+          "purpose": "VMs with public IPs (SSH access)"
+        },
+        {
+          "name": "private-subnet",
+          "cidr": "10.0.2.0/24",
+          "type": "private",
+          "purpose": "Reserved for future internal services"
+        }
+      ]
+    },
+    "tailscale": {
+      "network": "100.64.0.0/10",
+      "assignments": {
+        "granite-vm": "100.64.0.1",
+        "runner-us": "100.64.0.2",
+        "runner-eu": "100.64.0.3",
+        "runner-ap": "100.64.0.4",
+        "posthog-vm": "100.64.0.5"
+      },
+      "purpose": "Secure mesh network for inter-VM communication"
+    },
+    "firewall": {
+      "inbound": [
+        {
+          "port": 22,
+          "protocol": "TCP",
+          "source": "0.0.0.0/0",
+          "description": "SSH access"
+        },
+        {
+          "port": 8000,
+          "protocol": "TCP",
+          "source": "100.64.0.0/10",
+          "description": "Granite API (Tailscale only)"
+        },
+        {
+          "port": 8000,
+          "protocol": "TCP",
+          "source": "100.64.0.0/10",
+          "description": "PostHog (Tailscale only)"
+        }
+      ],
+      "outbound": [
+        {
+          "port": "all",
+          "protocol": "TCP",
+          "destination": "0.0.0.0/0",
+          "description": "Allow all outbound (for testing ATS)"
+        }
+      ]
+    }
+  },
+  "freeTierLimits": {
+    "compute": {
+      "arm": {
+        "ocpu": 4,
+        "memory": 24,
+        "description": "Total across all A1.Flex instances"
+      },
+      "x86": {
+        "instances": 2,
+        "type": "VM.Standard.E2.1.Micro",
+        "ocpuPerInstance": 0.125,
+        "memoryPerInstance": 1,
+        "description": "2 always-free micro instances"
+      }
+    },
+    "storage": {
+      "blockVolumes": {
+        "total": 200,
+        "unit": "GB",
+        "volumes": 2,
+        "description": "2 volumes @ 50GB each (boot disks don't count)"
+      },
+      "objectStorage": {
+        "total": 10,
+        "unit": "GB",
+        "description": "For backups and artifacts"
+      }
+    },
+    "networking": {
+      "outboundDataTransfer": {
+        "total": 10,
+        "unit": "TB/month",
+        "description": "More than enough for testing"
+      },
+      "loadBalancer": {
+        "instances": 1,
+        "bandwidth": 10,
+        "unit": "Mbps",
+        "description": "1 flexible load balancer (10 Mbps)"
+      }
+    }
+  },
+  "resourceAllocation": {
+    "current": {
+      "arm": {
+        "ocpu": 4,
+        "memory": 24,
+        "usage": "1 Granite VM"
+      },
+      "x86": {
+        "instances": 2,
+        "usage": "2 micro instances (runner-us, posthog)",
+        "note": "runner-eu and runner-ap would require paid instances or consolidation"
+      }
+    },
+    "optimized": {
+      "arm": {
+        "ocpu": 4,
+        "memory": 24,
+        "usage": "1 Granite VM (4 OCPU, 24GB)"
+      },
+      "x86": {
+        "instances": 2,
+        "usage": "1 test runner (all regions via scheduling), 1 PostHog",
+        "note": "Consolidate test runners to single VM with region scheduling"
+      }
+    }
+  },
+  "costEstimates": {
+    "withinFreeTier": {
+      "monthly": 0,
+      "annual": 0,
+      "description": "All resources within free tier limits"
+    },
+    "ifExceedingFreeTier": {
+      "additionalMicroInstance": {
+        "monthly": 5.95,
+        "description": "Each additional micro instance beyond 2 free"
+      },
+      "additionalARMOCPU": {
+        "monthly": 1.50,
+        "description": "Per OCPU/month for ARM beyond 4 free",
+        "note": "Plus $0.015/GB RAM/month beyond 24GB"
+      },
+      "blockStorage": {
+        "monthly": 0.085,
+        "unit": "per GB/month",
+        "description": "Beyond 200GB free"
+      }
+    }
+  },
+  "metadata": {
+    "lastUpdated": "2026-01-28",
+    "version": "1.0",
+    "notes": [
+      "Always Free tier is permanent, not a trial",
+      "Free tier limits apply per tenancy (account), not per region",
+      "ARM instances must be in regions that support A1.Flex shape",
+      "Check current availability: https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier.htm"
+    ]
+  }
+}
