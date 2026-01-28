@@ -1,5 +1,6 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as oci from '@pulumi/oci';
+import * as crypto from 'crypto';
 
 export interface GraniteVMArgs {
   compartmentId: pulumi.Input<string>;
@@ -23,7 +24,7 @@ export class GraniteVM extends pulumi.ComponentResource {
 
     const displayName = args.displayName || 'granite-vm';
     this.tailscaleIp = '100.64.0.1';
-    const litellmMasterKey = args.litellmMasterKey || pulumi.output('sk-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    const litellmMasterKey = args.litellmMasterKey || pulumi.output('sk-' + crypto.randomBytes(32).toString('hex'));
 
     // Get ARM Ubuntu image for Oracle Cloud
     const images = oci.core.getImagesOutput({

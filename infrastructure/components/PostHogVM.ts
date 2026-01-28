@@ -1,5 +1,6 @@
 import * as pulumi from '@pulumi/pulumi';
 import * as oci from '@pulumi/oci';
+import * as crypto from 'crypto';
 
 export interface PostHogVMArgs {
   compartmentId: pulumi.Input<string>;
@@ -27,9 +28,9 @@ export class PostHogVM extends pulumi.ComponentResource {
     this.tailscaleIp = '100.64.0.5';
     this.posthogUrl = `http://${this.tailscaleIp}:8000`;
     
-    // Generate secure passwords if not provided
-    const postgresPassword = args.postgresPassword || pulumi.output(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
-    const posthogSecretKey = args.posthogSecretKey || pulumi.output('posthog-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    // Generate secure passwords if not provided using cryptographically secure random bytes
+    const postgresPassword = args.postgresPassword || pulumi.output(crypto.randomBytes(32).toString('hex'));
+    const posthogSecretKey = args.posthogSecretKey || pulumi.output('posthog-' + crypto.randomBytes(48).toString('hex'));
 
     // Get x86 Ubuntu image for micro instance
     const images = oci.core.getImagesOutput({
