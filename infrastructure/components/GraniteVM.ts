@@ -9,6 +9,7 @@ export interface GraniteVMArgs {
   tailscaleAuthKey: pulumi.Input<string>;
   region: string;
   displayName?: string;
+  litellmMasterKey?: pulumi.Input<string>;
 }
 
 export class GraniteVM extends pulumi.ComponentResource {
@@ -22,6 +23,7 @@ export class GraniteVM extends pulumi.ComponentResource {
 
     const displayName = args.displayName || 'granite-vm';
     this.tailscaleIp = '100.64.0.1';
+    const litellmMasterKey = args.litellmMasterKey || pulumi.output('sk-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
 
     // Get ARM Ubuntu image for Oracle Cloud
     const images = oci.core.getImagesOutput({
@@ -70,7 +72,7 @@ runcmd:
   
   # Create litellm config
   - |
-    cat > /opt/litellm_config.yaml <<'EOF'
+    cat > /opt/litellm_config.yaml <<EOF
     model_list:
       - model_name: ollama/granite3.1-dense:8b
         litellm_params:
@@ -78,7 +80,7 @@ runcmd:
           api_base: http://localhost:11434
     
     general_settings:
-      master_key: sk-1234
+      master_key: ${litellmMasterKey}
       database_url: sqlite:////opt/litellm.db
     
     litellm_settings:

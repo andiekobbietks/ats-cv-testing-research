@@ -11,6 +11,11 @@ const compartmentId = config.requireSecret('compartmentId');
 const tailscaleAuthKey = config.requireSecret('tailscaleAuthKey');
 const sshPublicKey = config.get('sshPublicKey') || '';
 
+// Optional secrets (auto-generated if not provided)
+const litellmMasterKey = config.getSecret('litellmMasterKey');
+const postgresPassword = config.getSecret('postgresPassword');
+const posthogSecretKey = config.getSecret('posthogSecretKey');
+
 // Get OCI provider configuration
 const ociConfig = new pulumi.Config('oci');
 const primaryRegion = ociConfig.require('region');
@@ -145,6 +150,7 @@ const graniteVM = new GraniteVM('granite-vm', {
   tailscaleAuthKey: tailscaleAuthKey,
   region: primaryRegion,
   displayName: 'granite-vm',
+  litellmMasterKey: litellmMasterKey,
 });
 
 // Deploy PostHog VM
@@ -156,6 +162,8 @@ const posthogVM = new PostHogVM('posthog-vm', {
   tailscaleAuthKey: tailscaleAuthKey,
   region: primaryRegion,
   displayName: 'posthog-vm',
+  postgresPassword: postgresPassword,
+  posthogSecretKey: posthogSecretKey,
 });
 
 // Deploy Test Runner VMs

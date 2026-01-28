@@ -66,6 +66,7 @@ runcmd:
   
   # Install Playwright and dependencies
   - cd /opt/ats-tests
+  - chown -R ubuntu:ubuntu /opt/ats-tests
   - sudo -u ubuntu npm init -y
   - sudo -u ubuntu npm install --save-dev @playwright/test
   - sudo -u ubuntu npm install axios posthog-node dotenv

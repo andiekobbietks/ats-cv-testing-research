@@ -56,11 +56,14 @@ This infrastructure deploys a distributed testing environment for evaluating how
 | Granite VM | ARM A1.Flex | 4 | 24 GB | us-phoenix-1 | $0 |
 | PostHog VM | E2.1.Micro | 0.125 | 1 GB | us-phoenix-1 | $0 |
 | Test Runner US | E2.1.Micro | 0.125 | 1 GB | us-phoenix-1 | $0 |
-| Test Runner EU | E2.1.Micro | 0.125 | 1 GB | eu-frankfurt-1 | $0* |
-| Test Runner AP | E2.1.Micro | 0.125 | 1 GB | ap-singapore-1 | $0* |
-| **TOTAL** | | 4.5 | 28 GB | | **$0/month** |
+| Test Runner EU | E2.1.Micro | 0.125 | 1 GB | eu-frankfurt-1* | ~$6/mo |
+| Test Runner AP | E2.1.Micro | 0.125 | 1 GB | ap-singapore-1* | ~$6/mo |
+| **TOTAL** | | 4.5 | 28 GB | | **$0-12/month** |
 
-*Oracle Free Tier includes 2 micro instances. Additional regions may require paid instances (~$6/month each) or consolidation.
+*Note: Oracle Free Tier includes only 2 micro instances. To stay within free tier, you can:
+- Option A: Deploy only US runner and PostHog (100% free, tests 5 ATS systems)
+- Option B: Deploy all 3 runners for full 15 ATS coverage (~$12/month for 2 additional micro instances)
+- Option C: Consolidate test runners into 1 VM with scheduled regional testing (100% free)
 
 ## Prerequisites
 
@@ -531,10 +534,12 @@ pulumi stack rm <stack-name>
 | Resource | Specification | Oracle Free Tier | Usage | Cost |
 |----------|---------------|------------------|-------|------|
 | ARM Compute | 4 vCPU, 24 GB RAM | ✅ Within limits | 100% | $0 |
-| Micro Instances | 2 instances | ✅ Within limits | 100% | $0 |
+| Micro Instances | 2 instances | ✅ Within limits (US + PostHog) | 100% | $0 |
+| Extra Micro Instances | 2 instances (EU + AP) | ❌ Beyond free tier | Optional | ~$12/mo |
 | Block Storage | 100 GB total | ✅ Within limits | 50% | $0 |
 | Outbound Data | ~500 GB/month | ✅ Within limits | 5% | $0 |
-| **TOTAL** | | | | **$0/month** |
+| **TOTAL (Free Tier)** | | | | **$0/month** |
+| **TOTAL (All Regions)** | | | | **~$12/month** |
 
 ### Scaling Beyond Free Tier
 

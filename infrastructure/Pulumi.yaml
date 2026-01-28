@@ -12,3 +12,15 @@ config:
   sshPublicKey:
     description: SSH public key for instance access
     default: ""
+  litellmMasterKey:
+    description: Master key for LiteLLM API (generated automatically if not provided)
+    secret: true
+    default: ""
+  postgresPassword:
+    description: PostgreSQL password for PostHog (generated automatically if not provided)
+    secret: true
+    default: ""
+  posthogSecretKey:
+    description: Secret key for PostHog application (generated automatically if not provided)
+    secret: true
+    default: ""

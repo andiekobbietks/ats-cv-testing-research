@@ -9,6 +9,8 @@ export interface PostHogVMArgs {
   tailscaleAuthKey: pulumi.Input<string>;
   region: string;
   displayName?: string;
+  postgresPassword?: pulumi.Input<string>;
+  posthogSecretKey?: pulumi.Input<string>;
 }
 
 export class PostHogVM extends pulumi.ComponentResource {
@@ -24,6 +26,10 @@ export class PostHogVM extends pulumi.ComponentResource {
     const displayName = args.displayName || 'posthog-vm';
     this.tailscaleIp = '100.64.0.5';
     this.posthogUrl = `http://${this.tailscaleIp}:8000`;
+    
+    // Generate secure passwords if not provided
+    const postgresPassword = args.postgresPassword || pulumi.output(Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    const posthogSecretKey = args.posthogSecretKey || pulumi.output('posthog-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
 
     // Get x86 Ubuntu image for micro instance
     const images = oci.core.getImagesOutput({
@@ -60,7 +66,7 @@ runcmd:
   
   # Create docker-compose file for PostHog
   - |
-    cat > /opt/posthog/docker-compose.yml <<'EOF'
+    cat > /opt/posthog/docker-compose.yml <<EOF
     version: '3'
     
     services:
@@ -69,7 +75,7 @@ runcmd:
         container_name: posthog-postgres
         environment:
           POSTGRES_USER: posthog
-          POSTGRES_PASSWORD: posthog
+          POSTGRES_PASSWORD: ${postgresPassword}
           POSTGRES_DB: posthog
         volumes:
           - postgres-data:/var/lib/postgresql/data
@@ -98,7 +104,7 @@ runcmd:
         environment:
           CLICKHOUSE_DB: posthog
           CLICKHOUSE_USER: posthog
-          CLICKHOUSE_PASSWORD: posthog
+          CLICKHOUSE_PASSWORD: ${postgresPassword}
         restart: unless-stopped
         healthcheck:
           test: ["CMD", "wget", "--spider", "-q", "http://localhost:8123/ping"]
@@ -121,13 +127,13 @@ runcmd:
         environment:
           DISABLE_SECURE_SSL_REDIRECT: 'true'
           IS_BEHIND_PROXY: 'false'
-          DATABASE_URL: 'postgres://posthog:posthog@postgres:5432/posthog'
+          DATABASE_URL: 'postgres://posthog:${postgresPassword}@postgres:5432/posthog'
           CLICKHOUSE_HOST: 'clickhouse'
           CLICKHOUSE_DATABASE: 'posthog'
           CLICKHOUSE_USER: 'posthog'
-          CLICKHOUSE_PASSWORD: 'posthog'
+          CLICKHOUSE_PASSWORD: '${postgresPassword}'
           REDIS_URL: 'redis://redis:6379/'
-          SECRET_KEY: 'ats-cv-testing-secret-key-change-in-production'
+          SECRET_KEY: '${posthogSecretKey}'
           SITE_URL: 'http://${this.tailscaleIp}:8000'
         restart: unless-stopped
         volumes:
