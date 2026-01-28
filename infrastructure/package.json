@@ -1,0 +1,37 @@
+{
+  "name": "ats-cv-testing-infrastructure",
+  "version": "1.0.0",
+  "description": "Pulumi infrastructure for ATS CV testing research project",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "up": "pulumi up",
+    "preview": "pulumi preview",
+    "destroy": "pulumi destroy",
+    "refresh": "pulumi refresh",
+    "stack:init": "pulumi stack init",
+    "stack:select": "pulumi stack select",
+    "config:set": "pulumi config set"
+  },
+  "keywords": [
+    "pulumi",
+    "infrastructure",
+    "oracle-cloud",
+    "ats",
+    "cv-testing"
+  ],
+  "author": "ATS CV Testing Research",
+  "license": "MIT",
+  "dependencies": {
+    "@pulumi/pulumi": "^3.100.0",
+    "@pulumi/oci": "^2.0.0",
+    "@pulumi/command": "^0.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

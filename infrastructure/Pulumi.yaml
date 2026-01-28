@@ -1,0 +1,14 @@
+name: ats-cv-testing-infrastructure
+runtime: nodejs
+description: Infrastructure for ATS CV testing research using Oracle Cloud Always Free tier
+
+config:
+  compartmentId:
+    description: Oracle Cloud compartment OCID for resources
+    secret: true
+  tailscaleAuthKey:
+    description: Tailscale authentication key for VPN mesh network
+    secret: true
+  sshPublicKey:
+    description: SSH public key for instance access
+    default: ""
