@@ -1,0 +1,38 @@
+{
+  "name": "ats-cv-testing-research-tests",
+  "version": "1.0.0",
+  "description": "Playwright tests for ATS CV parsing accuracy research",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report",
+    "test:codegen": "playwright codegen"
+  },
+  "keywords": [
+    "playwright",
+    "ats",
+    "cv",
+    "testing",
+    "research"
+  ],
+  "author": "ATS CV Testing Research Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.41.1",
+    "@types/node": "^20.11.5",
+    "@types/pdfkit": "^0.17.4",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "dotenv": "^16.4.1",
+    "pdfkit": "^0.14.0",
+    "posthog-node": "^4.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
