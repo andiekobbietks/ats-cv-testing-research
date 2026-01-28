@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Test results and reports
+test-results/
+playwright-report/
+test-results.json
+test-results.xml
+
+# Playwright
+playwright/.cache/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+.cache/
+
+# Generated PDFs and LaTeX files
+*.pdf
+*.aux
+*.log
+*.out
+*.toc
+*.tex
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Coverage
+coverage/
+.nyc_output/
+
+# Debug
+debug.log

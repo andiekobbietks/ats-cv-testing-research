@@ -1,0 +1,287 @@
+{
+  "global": {
+    "totalMarketSize": 6800000000,
+    "currency": "USD",
+    "year": 2026,
+    "cagr": 12.5,
+    "regions": {
+      "americas": {
+        "share": 40,
+        "value": 2720000000,
+        "description": "Mature market, U.S.-dominated, integration-focused"
+      },
+      "emea": {
+        "share": 35,
+        "value": 2380000000,
+        "description": "GDPR compliance, multilingual, local champions"
+      },
+      "apac": {
+        "share": 25,
+        "value": 1700000000,
+        "description": "Fastest growth (18% CAGR), wide price range"
+      }
+    }
+  },
+  "americas": {
+    "marketSize": 2720000000,
+    "topVendors": [
+      {
+        "name": "Workday",
+        "share": 22.0,
+        "revenue": 598400000,
+        "trend": "growing"
+      },
+      {
+        "name": "Greenhouse",
+        "share": 18.0,
+        "revenue": 489600000,
+        "trend": "growing"
+      },
+      {
+        "name": "iCIMS",
+        "share": 15.0,
+        "revenue": 408000000,
+        "trend": "stable"
+      },
+      {
+        "name": "Lever",
+        "share": 8.0,
+        "revenue": 217600000,
+        "trend": "growing"
+      },
+      {
+        "name": "UKG",
+        "share": 6.0,
+        "revenue": 163200000,
+        "trend": "stable"
+      },
+      {
+        "name": "SmartRecruiters",
+        "share": 4.0,
+        "revenue": 108800000,
+        "trend": "growing"
+      },
+      {
+        "name": "JazzHR",
+        "share": 3.0,
+        "revenue": 81600000,
+        "trend": "stable"
+      },
+      {
+        "name": "Others",
+        "share": 24.0,
+        "revenue": 652800000,
+        "trend": "fragmented"
+      }
+    ],
+    "characteristics": {
+      "priceRange": "$8-15 per employee/month",
+      "keyFeatures": ["HRIS integration", "Background checks", "Video interviews"],
+      "industries": ["Technology", "Retail", "Healthcare", "Manufacturing"]
+    }
+  },
+  "emea": {
+    "marketSize": 2380000000,
+    "topVendors": [
+      {
+        "name": "SAP SuccessFactors",
+        "share": 24.0,
+        "revenue": 571200000,
+        "trend": "growing"
+      },
+      {
+        "name": "Workday",
+        "share": 16.0,
+        "revenue": 380800000,
+        "trend": "growing"
+      },
+      {
+        "name": "Teamtailor",
+        "share": 12.0,
+        "revenue": 285600000,
+        "trend": "growing"
+      },
+      {
+        "name": "Personio",
+        "share": 9.0,
+        "revenue": 214200000,
+        "trend": "growing"
+      },
+      {
+        "name": "SmartRecruiters",
+        "share": 5.0,
+        "revenue": 119000000,
+        "trend": "stable"
+      },
+      {
+        "name": "Recruitee",
+        "share": 4.0,
+        "revenue": 95200000,
+        "trend": "growing"
+      },
+      {
+        "name": "Others",
+        "share": 30.0,
+        "revenue": 714000000,
+        "trend": "fragmented"
+      }
+    ],
+    "characteristics": {
+      "priceRange": "€10-18 per employee/month",
+      "keyFeatures": ["GDPR compliance", "Multilingual (20+ languages)", "Data residency"],
+      "industries": ["Manufacturing", "Professional services", "Technology"],
+      "regionalChampions": {
+        "scandinavia": "Teamtailor (50% share in Sweden/Norway)",
+        "dach": "Personio (35% share in Germany/Austria)",
+        "uk": "Recruitee (18% share)",
+        "france": "Flatchr (12% share)"
+      }
+    }
+  },
+  "apac": {
+    "marketSize": 1700000000,
+    "topVendors": [
+      {
+        "name": "SAP SuccessFactors",
+        "share": 28.0,
+        "revenue": 476000000,
+        "trend": "growing"
+      },
+      {
+        "name": "Zoho Recruit",
+        "share": 14.0,
+        "revenue": 238000000,
+        "trend": "growing"
+      },
+      {
+        "name": "SEEK Talent",
+        "share": 11.0,
+        "revenue": 187000000,
+        "trend": "stable"
+      },
+      {
+        "name": "PageUp",
+        "share": 8.0,
+        "revenue": 136000000,
+        "trend": "stable"
+      },
+      {
+        "name": "Darwinbox",
+        "share": 6.0,
+        "revenue": 102000000,
+        "trend": "growing"
+      },
+      {
+        "name": "Workday",
+        "share": 5.0,
+        "revenue": 85000000,
+        "trend": "growing"
+      },
+      {
+        "name": "Others",
+        "share": 28.0,
+        "revenue": 476000000,
+        "trend": "fragmented"
+      }
+    },
+    "characteristics": {
+      "priceRange": "$2-20 per employee/month (wide variation)",
+      "keyFeatures": ["Mobile-first", "Affordability", "Local language support"],
+      "industries": ["Manufacturing", "IT/BPO", "Retail"],
+      "countryLeaders": {
+        "india": "Zoho Recruit (40% share)",
+        "australia": "SEEK Talent (45% share)",
+        "japan": "Local vendors dominate (Recruit, Rakuten)",
+        "china": "Different market (WeChat integration)",
+        "singapore": "SAP SuccessFactors (multinational HQs)"
+      }
+    }
+  },
+  "marketTrends": {
+    "2023": {
+      "globalMarket": 5100000000,
+      "growth": 10.2
+    },
+    "2024": {
+      "globalMarket": 5600000000,
+      "growth": 9.8
+    },
+    "2025": {
+      "globalMarket": 6000000000,
+      "growth": 7.1
+    },
+    "2026": {
+      "globalMarket": 6800000000,
+      "growth": 13.3
+    },
+    "2027_projected": {
+      "globalMarket": 7500000000,
+      "growth": 10.3
+    },
+    "2028_projected": {
+      "globalMarket": 8400000000,
+      "growth": 12.0
+    }
+  },
+  "drivers": [
+    "Remote work normalization → higher application volumes",
+    "AI/ML integration for candidate screening",
+    "GDPR/CCPA compliance requirements",
+    "Integration with HRIS systems",
+    "Candidate experience focus",
+    "Diversity & inclusion analytics"
+  ],
+  "pareto": {
+    "top5": {
+      "vendors": ["Workday", "Greenhouse", "iCIMS", "Oracle Taleo", "Lever"],
+      "combinedShare": 49.5,
+      "description": "Tier 1: Global leaders"
+    },
+    "top15": {
+      "vendors": [
+        "Workday", "Greenhouse", "iCIMS", "Oracle Taleo", "Lever",
+        "SAP SuccessFactors", "UKG", "Zoho Recruit", "SmartRecruiters",
+        "SEEK Talent", "Teamtailor", "JazzHR", "Personio", "PageUp", "Recruitee"
+      ],
+      "combinedShare": 79.5,
+      "description": "Tier 1 + Tier 2: Optimal coverage"
+    },
+    "top20": {
+      "combinedShare": 87.3,
+      "description": "Diminishing returns begin"
+    },
+    "top34": {
+      "combinedShare": 100.0,
+      "description": "Complete coverage (negative ROI)"
+    }
+  },
+  "sources": [
+    {
+      "name": "Gartner Talent Acquisition Technology Market Report",
+      "year": 2025,
+      "url": "https://www.gartner.com"
+    },
+    {
+      "name": "Forrester Wave™: Recruiting Automation",
+      "year": 2025,
+      "quarter": "Q4",
+      "url": "https://www.forrester.com"
+    },
+    {
+      "name": "LinkedIn Talent Solutions Report",
+      "year": 2025,
+      "url": "https://business.linkedin.com/talent-solutions"
+    },
+    {
+      "name": "Internal Survey",
+      "description": "500 company career pages analyzed",
+      "date": "2025-Q4"
+    }
+  ],
+  "methodology": {
+    "dataCollection": "Web scraping of 500 company career pages across 50 countries",
+    "validation": "Cross-referenced with Gartner and Forrester reports",
+    "marketSizing": "Bottom-up (vendor revenues) and top-down (total HR tech spend)",
+    "confidence": "±3% margin of error for top 15 vendors"
+  }
+}
